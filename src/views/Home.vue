@@ -12,27 +12,38 @@
     <div class="home__select">
       <!-- props in , emit out -->
       <!-- 起點 -->
-      <Selector
+      <StartSelector
         :cls="start.cls"
         :title="start.title"
         v-model:lineVmodel="input.startLineID"
-        @getStartStationDataHook="getStartStationData"
+        @getStationDataHook="getStartStationData"
         :lineData="lineData"
         :stationData="startStationData"
         v-model:stationVmodel="input.startStationID"
-        @StartstationChangeHook="startStationChange"
-      ></Selector>
+        @stationChangeHook="startStationChange"
+      ></StartSelector>
       <!-- 目的地 -->
-      <Selector
+      <EndSelector
         :cls="end.cls"
         :title="end.title"
         v-model:lineVmodel="input.endLineID"
-        @getEndStationDataHook="getEndStationData"
+        @getStationDataHook="getEndStationData"
         :lineData="lineData"
         :stationData="endStationData"
         v-model:stationVmodel="input.endStationID"
-        @EndstationChangeHook="endStationChange"
-      ></Selector>
+        @stationChangeHook="endStationChange"
+      ></EndSelector>
+
+      <!-- <Selectortwo
+        :cls="end.cls"
+        :title="end.title"
+        v-model:lineVmodel="input.endLineID"
+        @getStationDataHook="getEndStationData"
+        :lineData="lineData"
+        :stationData="endStationData"
+        v-model:stationVmodel="input.endStationID"
+        @stationChangeHook="endStationChange"
+      ></Selectortwo> -->
     </div>
 
     <!-- 按鈕 -->
@@ -52,7 +63,9 @@
 <script>
 import axios from "axios";
 import jsSHA from "jssha";
-import Selector from "../components/Selector";
+import StartSelector from "../components/Selector";
+// import EndSelector from "../components/Selector";
+import EndSelector from "../components/Selectortwo";
 export default {
   data() {
     return {
@@ -90,7 +103,9 @@ export default {
     };
   },
   components: {
-    Selector,
+    StartSelector,
+    EndSelector,
+    // Selectortwo
   },
   computed: {
     getPriceDataUrl() {
@@ -113,8 +128,18 @@ export default {
       }
     },
   },
+  beforeEnter(){
+    this.input.startStationID = null;
+    this.input.endStationID = null;
+  },
+  // beforeRouteEnter(){
+  //   this.input.startStationID = null;
+  //   this.input.endStationID = null;
+  // },
   created() {
     this.getLineData();
+    this.input.startStationID = null;
+    this.input.endStationID = null;
   },
   methods: {
     getAPI(currentUrl, currentFun) {

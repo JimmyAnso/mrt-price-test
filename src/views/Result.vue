@@ -59,6 +59,7 @@ export default {
       navigator.clipboard.writeText(window.location.href);
     },
     goBack() {
+      // this.$router.go(-1);
       this.$router.push({ path: "/home" });
     },
     softwhy() {
