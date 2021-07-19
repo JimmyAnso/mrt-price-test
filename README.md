@@ -19,6 +19,6 @@ yarn build
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Github Pages
-```
-https://jimmyanso.github.io/mrt-price/
-```
+
+  https://jimmyanso.github.io/mrt-price/
+
