@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
+import ViewUI from './plugins/iview.js'
 
 
 // import Vue from 'vue'
@@ -10,4 +11,4 @@ import store from './store'
 // // const app = Vue.createApp(...)
 // app.use(VueAxios, axios)
 
-createApp(App).use(store).use(router).mount('#app')
+createApp(App).use(store).use(router).use(ViewUI).mount('#app')

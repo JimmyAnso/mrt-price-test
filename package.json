@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "jssha": "^3.2.0",
+    "view-design": "^4.0.0",
     "vue": "^3.0.0",
     "vue-axios": "^3.2.4",
     "vue-loader-v16": "^16.0.0-beta.5.4",
@@ -22,6 +23,7 @@
     "@vue/compiler-sfc": "^3.0.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
+    "vue-cli-plugin-iview": "^2.0.0",
     "vue-loader-v16": "^16.0.0-beta.5.4"
   },
   "browserslist": [
